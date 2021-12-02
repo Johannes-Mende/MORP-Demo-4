@@ -53,7 +53,11 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, I
             lastSlot = eventData.pointerCurrentRaycast.gameObject;                                                                     //Slot wird zwischen gespeichert
             eventData.pointerCurrentRaycast.gameObject.GetComponent<ItemSlot>().oneEquip = gameObject.GetComponent<DragDrop>().oneEquip;    //Slot bekommt werte von droped Orb
             //EC.access.onEquipped(eventData.pointerCurrentRaycast.gameObject);
-            EC.access.addItem(gameObject.GetComponent<DragDrop>().oneEquip.objekt);                                                               //
+            
+            if (eventData.pointerCurrentRaycast.gameObject.GetComponent<ItemSlot>().EquippableSlot)
+            {
+                EC.access.addItem(gameObject.GetComponent<DragDrop>().oneEquip.objekt);
+            } 
 
         }
         canvasGroup.alpha = 1f;

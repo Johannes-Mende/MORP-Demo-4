@@ -6,6 +6,7 @@ using UnityEngine.UI;
 
 public class ItemSlot : MonoBehaviour, IDropHandler
 {
+    public bool EquippableSlot = false;
     public EquipmentController.Equippable oneEquip;
     public void OnDrop(PointerEventData eventData)
     {
