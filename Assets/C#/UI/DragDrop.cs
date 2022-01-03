@@ -58,7 +58,11 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, I
             {
                 EC.access.addItem(gameObject.GetComponent<DragDrop>().oneEquip.objekt);
             } 
-
+            if (!eventData.pointerCurrentRaycast.gameObject.GetComponent<ItemSlot>().EquippableSlot)
+            {
+                EC.access.removeItem(gameObject.GetComponent<DragDrop>().oneEquip.objekt);
+            }
+                
         }
         canvasGroup.alpha = 1f;
         canvasGroup.blocksRaycasts = true;
