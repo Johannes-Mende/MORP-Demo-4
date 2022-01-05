@@ -2041,7 +2041,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   controller: {fileID: 1359797626}
   cam: {fileID: 963194228}
-  speed: 6
+  speed: 9
   turnSmoothTime: 0.1
 --- !u!143 &1359797626
 CharacterController:
@@ -2221,7 +2221,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6229006255646631607, guid: 5e948eb931d08954191a1d35a0853595, type: 3}
       propertyPath: m_ApplyRootMotion
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5e948eb931d08954191a1d35a0853595, type: 3}

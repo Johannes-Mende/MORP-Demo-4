@@ -11,6 +11,13 @@ public class ThridPersonMovement : MonoBehaviour
     float turnSmoothVelocity;
     public float turnSmoothTime = 0.1f;
 
+    Animator animator;
+
+    void Start() 
+    {
+        animator = GetComponentInChildren<Animator>();
+    }
+
     // Update is called once per frame
     void Update()
     {
@@ -26,6 +33,12 @@ public class ThridPersonMovement : MonoBehaviour
 
             Vector3 moveDir = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward;
             controller.Move(moveDir.normalized * speed * Time.deltaTime);
+
+            animator.SetBool("isWalking", true);
+        }
+        else
+        {
+            animator.SetBool("isWalking", false);
         }
     }
 }
