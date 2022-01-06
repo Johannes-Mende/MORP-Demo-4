@@ -40,5 +40,16 @@ public class ThridPersonMovement : MonoBehaviour
         {
             animator.SetBool("isWalking", false);
         }
+
+        if (Input.GetKey("left shift"))
+        {
+            speed = 12;
+            animator.SetBool("isRunning", true);
+        }
+        else
+        {
+            speed = 6;
+            animator.SetBool("isRunning", false);
+        }
     }
 }
