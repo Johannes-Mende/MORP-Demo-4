@@ -18,7 +18,6 @@ public class ThridPersonMovement : MonoBehaviour
         animator = GetComponentInChildren<Animator>();
     }
 
-    // Update is called once per frame
     void Update()
     {
         float horizontal = Input.GetAxisRaw("Horizontal");
@@ -50,6 +49,15 @@ public class ThridPersonMovement : MonoBehaviour
         {
             speed = 6;
             animator.SetBool("isRunning", false);
+        }
+
+        if (Input.GetKeyDown("mouse 0"))
+        {
+            animator.SetBool("isAttacking", true);
+        }
+        else
+        {
+            animator.SetBool("isAttacking", false);
         }
     }
 }
