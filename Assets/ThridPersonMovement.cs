@@ -54,10 +54,22 @@ public class ThridPersonMovement : MonoBehaviour
         if (Input.GetKeyDown("mouse 0"))
         {
             animator.SetBool("isAttacking", true);
+            StartCoroutine(AnimationDelay());
         }
         else
         {
             animator.SetBool("isAttacking", false);
+
+
         }
+    }
+
+    IEnumerator AnimationDelay()
+    {
+        animator.SetLayerWeight(1, 1);
+        yield return new WaitForSeconds(1);
+
+        animator.SetLayerWeight(1, 0);
+        StopCoroutine(AnimationDelay());
     }
 }
