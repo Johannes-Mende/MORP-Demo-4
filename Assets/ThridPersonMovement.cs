@@ -11,7 +11,13 @@ public class ThridPersonMovement : MonoBehaviour
     float turnSmoothVelocity;
     public float turnSmoothTime = 0.1f;
 
-    // Update is called once per frame
+    Animator animator;
+
+    void Start() 
+    {
+        animator = GetComponentInChildren<Animator>();
+    }
+
     void Update()
     {
         float horizontal = Input.GetAxisRaw("Horizontal");
@@ -26,6 +32,44 @@ public class ThridPersonMovement : MonoBehaviour
 
             Vector3 moveDir = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward;
             controller.Move(moveDir.normalized * speed * Time.deltaTime);
+
+            animator.SetBool("isWalking", true);
         }
+        else
+        {
+            animator.SetBool("isWalking", false);
+        }
+
+        if (Input.GetKey("left shift"))
+        {
+            speed = 12;
+            animator.SetBool("isRunning", true);
+        }
+        else
+        {
+            speed = 6;
+            animator.SetBool("isRunning", false);
+        }
+
+        if (Input.GetKeyDown("mouse 0"))
+        {
+            animator.SetBool("isAttacking", true);
+            StartCoroutine(AnimationDelay());
+        }
+        else
+        {
+            animator.SetBool("isAttacking", false);
+
+
+        }
+    }
+
+    IEnumerator AnimationDelay()
+    {
+        animator.SetLayerWeight(1, 1);
+        yield return new WaitForSeconds(1);
+
+        animator.SetLayerWeight(1, 0);
+        StopCoroutine(AnimationDelay());
     }
 }
