@@ -83,6 +83,6 @@ public class BossAI : MonoBehaviour
         //Make sure enmey doesn't move 
         agent.SetDestination(transform.position);
 
-        transform.LockAt(player);
+        transform.LookAt(player);
     }
 }

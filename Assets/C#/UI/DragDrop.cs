@@ -18,6 +18,8 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, I
     {
         rectTransform = GetComponent<RectTransform>();
         canvasGroup = GetComponent<CanvasGroup>();
+        canvas = FindObjectOfType<Canvas>();
+        EC = FindObjectOfType<EquipmentController>();
     }
     public void OnBeginDrag(PointerEventData eventData)
     {
