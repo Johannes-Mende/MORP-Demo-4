@@ -20,6 +20,12 @@ public class InputKeys : MonoBehaviour
                 case "S":
                     // Speichern
                     break;
+                case "C":
+                    GameManager.access.GL.InventoryOn();
+                    break;
+                case "V":
+                    GameManager.access.GL.InventoryOff();
+                    break;
             }
         }
 
